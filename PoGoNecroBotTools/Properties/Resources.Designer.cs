@@ -106,6 +106,15 @@ namespace PoGoNecroBotTools.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Kill All.
+        /// </summary>
+        public static string MainWindow_Kill_All_NecroBot {
+            get {
+                return ResourceManager.GetString("MainWindow_Kill_All_NecroBot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Latitude:.
         /// </summary>
         public static string MainWindow_Latitude_ {
@@ -115,11 +124,29 @@ namespace PoGoNecroBotTools.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Locations Commands.
+        /// </summary>
+        public static string MainWindow_Locations_Commands {
+            get {
+                return ResourceManager.GetString("MainWindow_Locations_Commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Longitude:.
         /// </summary>
         public static string MainWindow_Longitude_ {
             get {
                 return ResourceManager.GetString("MainWindow_Longitude_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à NecroBot Commands.
+        /// </summary>
+        public static string MainWindow_NecroBot_Commands {
+            get {
+                return ResourceManager.GetString("MainWindow_NecroBot_Commands", resourceCulture);
             }
         }
         

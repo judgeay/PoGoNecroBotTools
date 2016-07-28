@@ -1,0 +1,104 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- COLORS -->
+    <Color x:Key="NormalColor1">#293955</Color>
+    <Color x:Key="NormalColor2">#465a7d</Color>
+    <Color x:Key="NormalColor3">#d6dbe9</Color>
+    <Color x:Key="NormalColor4">#dce0ec</Color>
+
+    <Color x:Key="NormalBorderColor">#8591a2</Color>
+
+    <Color x:Key="HighlightColor">#007acc</Color>
+    <Color x:Key="HighlightBorderColor">#e5c365</Color>
+    <Color x:Key="HighlightBackgroundColor1">#ffe8a6</Color>
+    <Color x:Key="HighlightBackgroundColor2">#fff0d0</Color>
+    <Color x:Key="HighlightBackgroundColor3">#fffcf4</Color>
+
+    <Color x:Key="ActiveSelectionColor">#3399ff</Color>
+    <Color x:Key="InactiveSelectionColor">#e1e1e1</Color>
+
+    <Color x:Key="FontColor1">Black</Color>
+    <Color x:Key="FontColor2">White</Color>
+    <Color x:Key="FontColor3">DarkGray</Color>
+
+    <!-- BRUSHES -->
+    <SolidColorBrush x:Key="NormalBrush1" Color="{StaticResource NormalColor1}" />
+    <SolidColorBrush x:Key="NormalBrush2" Color="{StaticResource NormalColor2}" />
+    <SolidColorBrush x:Key="NormalBrush3" Color="{StaticResource NormalColor3}" />
+    <SolidColorBrush x:Key="NormalBrush4" Color="{StaticResource NormalColor4}" />
+
+    <SolidColorBrush x:Key="NormalBorderBrush" Color="{StaticResource NormalBorderColor}" />
+
+    <SolidColorBrush x:Key="HighlightBrush" Color="{StaticResource HighlightColor}" />
+    <SolidColorBrush x:Key="HighlightBorderBrush" Color="{StaticResource HighlightBorderColor}" />
+    <SolidColorBrush x:Key="HighlightBackgroundBrush1" Color="{StaticResource HighlightBackgroundColor1}" />
+    <SolidColorBrush x:Key="HighlightBackgroundBrush2" Color="{StaticResource HighlightBackgroundColor2}" />
+    <SolidColorBrush x:Key="HighlightBackgroundBrush3" Color="{StaticResource HighlightBackgroundColor3}" />
+
+    <SolidColorBrush x:Key="ActiveSelectionColorBrush" Color="{StaticResource ActiveSelectionColor}" />
+    <SolidColorBrush x:Key="InactiveSelectionColorBrush" Color="{StaticResource InactiveSelectionColor}" />
+
+    <SolidColorBrush x:Key="FontBrush1" Color="{StaticResource FontColor1}" />
+    <SolidColorBrush x:Key="FontBrush2" Color="{StaticResource FontColor2}" />
+    <SolidColorBrush x:Key="FontBrush3" Color="{StaticResource FontColor3}" />
+
+    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+    <SolidColorBrush x:Key="DisabledBackgroundBrush" Color="#EEE" />
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#FFF" />
+
+    <SolidColorBrush x:Key="DisabledBorderBrush" Color="#AAA" />
+    <SolidColorBrush x:Key="SolidBorderBrush" Color="#646464" />
+
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#8591A2" />
+
+    <!--THEMES-->
+    <Style x:Key="WindowStyle" TargetType="Window">
+        <Setter Property="Background" Value="{StaticResource NormalBrush3}" />
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+    </Style>
+    
+    <Style x:Key="DialogStyle" TargetType="Window" BasedOn="{StaticResource WindowStyle}">
+        <Setter Property="ShowInTaskbar" Value="False" />
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource NormalBrush3}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Margin" Value="2,1,2,1" />
+        <Setter Property="Padding" Value="5,2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"
+                            Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource HighlightBorderBrush}" />
+                <Setter Property="Background" Value="{StaticResource HighlightBackgroundBrush2}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.5" />
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="True" />
+                    <Condition Property="IsPressed" Value="True" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="BorderBrush" Value="{StaticResource HighlightBorderBrush}" />
+                    <Setter Property="Background" Value="{StaticResource HighlightBackgroundBrush1}" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

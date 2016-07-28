@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
@@ -23,7 +24,10 @@ namespace PoGoNecroBotTools.ViewModel
 
         #region Fields
 
+        private readonly List<Process> _necroBotProcesses = new List<Process>();
+
         private DirectoryInfo _dirInfo;
+        private RelayCommand _killNecroBotAction;
         private ObservableCollection<Location> _locations = new ObservableCollection<Location>();
         private ReadOnlyObservableCollection<Location> _readOnlyLocations;
         private RelayCommand _removeLocationCommand;
@@ -37,21 +41,7 @@ namespace PoGoNecroBotTools.ViewModel
 
         public MainWindowViewModel()
         {
-            if (!Directory.Exists(Settings.Default.DefaultDirectory))
-            {
-                var fbd = new FolderBrowserDialog { Description = Resources.MainWindow_Select_your_NecroBot_folder };
-                var result = fbd.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-                {
-                    Settings.Default.DefaultDirectory = fbd.SelectedPath;
-                    Settings.Default.Save();
-
-                    LoadDefaultDirectory();
-                }
-                else Application.Current.Shutdown();
-            }
-            else LoadDefaultDirectory();
+            Locations = new ReadOnlyObservableCollection<Location>(_locations);
         }
 
         #endregion
@@ -59,6 +49,12 @@ namespace PoGoNecroBotTools.ViewModel
         #region Properties
 
         public RelayCommand AddLocationCommand => new RelayCommand(AddLocationAction);
+
+        public RelayCommand KillNecroBotCommand
+        {
+            // ReSharper disable once ConvertPropertyToExpressionBody
+            get { return _killNecroBotAction ?? (_killNecroBotAction = new RelayCommand(KillNecroBotAction, KillNecroBotCanAction)); }
+        }
 
         public ReadOnlyObservableCollection<Location> Locations
         {
@@ -103,6 +99,25 @@ namespace PoGoNecroBotTools.ViewModel
 
         #region Methods
 
+        public void OnViewLoaded()
+        {
+            if (!Directory.Exists(Settings.Default.DefaultDirectory))
+            {
+                var fbd = new FolderBrowserDialog { Description = Resources.MainWindow_Select_your_NecroBot_folder };
+                var result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    Settings.Default.DefaultDirectory = fbd.SelectedPath;
+                    Settings.Default.Save();
+
+                    LoadDefaultDirectory();
+                }
+                else Application.Current.Shutdown();
+            }
+            else LoadDefaultDirectory();
+        }
+
         private void AddLocationAction()
         {
             var addLocationDialog = new AddLocationDialogViewModel();
@@ -112,6 +127,24 @@ namespace PoGoNecroBotTools.ViewModel
 
             _locations.Add(new Location(addLocationDialog.LocationTitle, addLocationDialog.DoubleLocationLatitude, addLocationDialog.DoubleLocationLongitude));
             Serialize();
+        }
+
+        private void KillNecroBotAction()
+        {
+            foreach (var process in _necroBotProcesses)
+            {
+                process.Kill();
+            }
+
+            _necroBotProcesses.Clear();
+
+            KillNecroBotCommand.RaiseCanExecuteChanged();
+            StartNecroBotCommand.RaiseCanExecuteChanged();
+        }
+
+        private bool KillNecroBotCanAction()
+        {
+            return _necroBotProcesses.Count > 0;
         }
 
         private void LoadDefaultDirectory()
@@ -148,7 +181,10 @@ namespace PoGoNecroBotTools.ViewModel
             StartNecroBotCommand.RaiseCanExecuteChanged();
         }
 
-        private bool RemoveLocationCanAction() { return SelectedLocation != null; }
+        private bool RemoveLocationCanAction()
+        {
+            return SelectedLocation != null;
+        }
 
         private void Serialize()
         {
@@ -174,7 +210,10 @@ namespace PoGoNecroBotTools.ViewModel
             StartNecroBotCommand.RaiseCanExecuteChanged();
         }
 
-        private bool SetAsDefaultCanAction() { return SelectedLocation != null; }
+        private bool SetAsDefaultCanAction()
+        {
+            return SelectedLocation != null;
+        }
 
         private void StartNecroBotAction()
         {
@@ -197,11 +236,17 @@ namespace PoGoNecroBotTools.ViewModel
                 var necroBotExe = necroBotDirectory.EnumerateFiles().Single(x => x.Name == Settings.Default.NecroBotExeName);
 
                 var processStartInfo = new ProcessStartInfo(necroBotExe.FullName) { WorkingDirectory = necroBotDirectory.FullName };
-                Process.Start(processStartInfo);
+                _necroBotProcesses.Add(Process.Start(processStartInfo));
             }
+
+            KillNecroBotCommand.RaiseCanExecuteChanged();
+            StartNecroBotCommand.RaiseCanExecuteChanged();
         }
 
-        private bool StartNecroBotCanAction() { return Locations.Any(x => x.IsDefault); }
+        private bool StartNecroBotCanAction()
+        {
+            return _necroBotProcesses.Count == 0 && Locations.Any(x => x.IsDefault);
+        }
 
         #endregion
     }

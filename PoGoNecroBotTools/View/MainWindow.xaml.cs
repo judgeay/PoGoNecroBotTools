@@ -1,4 +1,6 @@
-﻿using PoGoNecroBotTools.ViewModel;
+﻿using System;
+using System.Windows;
+using PoGoNecroBotTools.ViewModel;
 
 namespace PoGoNecroBotTools.View
 {
@@ -14,6 +16,18 @@ namespace PoGoNecroBotTools.View
             InitializeComponent();
 
             DataContext = new MainWindowViewModel();
+
+            ContentRendered += OnContentRendered;
+        }
+
+        #endregion
+
+        #region Methods
+
+        private void OnContentRendered(object sender, EventArgs eventArgs)
+        {
+            var viewModel = DataContext as MainWindowViewModel;
+            viewModel?.OnViewLoaded();
         }
 
         #endregion

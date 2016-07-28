@@ -156,4 +156,13 @@
   <data name="Dialog_Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="MainWindow_Locations_Commands" xml:space="preserve">
+    <value>Locations Commands</value>
+  </data>
+  <data name="MainWindow_NecroBot_Commands" xml:space="preserve">
+    <value>NecroBot Commands</value>
+  </data>
+  <data name="MainWindow_Kill_All_NecroBot" xml:space="preserve">
+    <value>Kill All</value>
+  </data>
 </root>

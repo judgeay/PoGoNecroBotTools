@@ -1,50 +1,61 @@
 ﻿<Window x:Class="PoGoNecroBotTools.View.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:PoGoNecroBotTools.ViewModel"
-        xmlns:properties="clr-namespace:PoGoNecroBotTools.Properties" mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModel:MainWindowViewModel}"
-        Title="{x:Static properties:Resources.MainWindow_Title}" Height="300" Width="400">
+        xmlns:properties="clr-namespace:PoGoNecroBotTools.Properties" mc:Ignorable="d" d:DataContext="{d:DesignInstance viewModel:MainWindowViewModel}" Style="{StaticResource WindowStyle}"
+        Title="{x:Static properties:Resources.MainWindow_Title}" Height="600" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="MinWidth" Value="80" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Grid>
-        <Grid.Resources>
-            <ResourceDictionary>
-                <Style TargetType="Button">
-                    <Setter Property="Padding" Value="5,0" />
-                    <Setter Property="MinWidth" Value="60" />
-                </Style>
-            </ResourceDictionary>
-        </Grid.Resources>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <ListBox Margin="10,10,10,0" ItemsSource="{Binding Locations}" SelectionMode="Single" SelectedItem="{Binding SelectedLocation}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0,0,10,0" Text="{x:Static properties:Resources.MainWindow_Default}" FontWeight="Bold" Visibility="{Binding IsDefaultVisibility}" />
-                            <TextBlock Margin="0,0,4,0" Text="{x:Static properties:Resources.MainWindow_Title_}" />
-                            <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+        <DockPanel Margin="10,5">
+            <TextBlock DockPanel.Dock="Top" Text="Locations" FontWeight="Bold" />
+            <ListBox ItemsSource="{Binding Locations}" SelectionMode="Single" SelectedItem="{Binding SelectedLocation}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="10">
+                            <TextBlock Text="{x:Static properties:Resources.MainWindow_Default}" FontWeight="Bold" Visibility="{Binding IsDefaultVisibility}" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,4,0" Text="{x:Static properties:Resources.MainWindow_Title_}" />
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Margin="0,0,4,0" Text="{x:Static properties:Resources.MainWindow_Latitude_}" />
+                                <TextBlock Margin="0,0,10,0" Text="{Binding Latitude}" FontWeight="SemiBold" />
+                                <TextBlock Margin="0,0,4,0" Text="{x:Static properties:Resources.MainWindow_Longitude_}" />
+                                <TextBlock Text="{Binding Longitude}" FontWeight="SemiBold" />
+                            </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Margin="0,0,4,0" Text="{x:Static properties:Resources.MainWindow_Latitude_}" />
-                            <TextBlock Margin="0,0,10,0" Text="{Binding Latitude}" FontWeight="SemiBold" />
-                            <TextBlock Margin="0,0,4,0" Text="{x:Static properties:Resources.MainWindow_Longitude_}" />
-                            <TextBlock Text="{Binding Longitude}" FontWeight="SemiBold" />
-                        </StackPanel>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </DockPanel>
 
-        <Grid Grid.Row="1" Margin="10,2">
-            <Button HorizontalAlignment="Left" Content="{x:Static properties:Resources.MainWindow_Set_as_default}" Command="{Binding SetAsDefaultCommand}" />
-            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-                <Button Margin="2,0" Content="{x:Static properties:Resources.MainWindow_Add_Location}" Command="{Binding AddLocationCommand}" />
-                <Button Margin="2,0" Content="{x:Static properties:Resources.MainWindow_Remove_Location}" Command="{Binding RemoveLocationCommand}" />
+        <DockPanel Grid.Row="1">
+            <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Margin="10,5">
+                <TextBlock Text="{x:Static properties:Resources.MainWindow_Locations_Commands}" FontWeight="Bold" />
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="{x:Static properties:Resources.MainWindow_Set_as_default}" Command="{Binding SetAsDefaultCommand}" Margin="0,1,2,1" />
+                    <Button Content="{x:Static properties:Resources.MainWindow_Add_Location}" Command="{Binding AddLocationCommand}" />
+                    <Button Content="{x:Static properties:Resources.MainWindow_Remove_Location}" Command="{Binding RemoveLocationCommand}" />
+                </StackPanel>
             </StackPanel>
-            <Button HorizontalAlignment="Right" Content="{x:Static properties:Resources.MainWindow_Start_All_NecroBot}" Command="{Binding StartNecroBotCommand}" />
-        </Grid>
+
+            <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Right" Orientation="Vertical" Margin="10,5">
+                <TextBlock HorizontalAlignment="Right" Text="{x:Static properties:Resources.MainWindow_NecroBot_Commands}" FontWeight="Bold" />
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Content="{x:Static properties:Resources.MainWindow_Start_All_NecroBot}" Command="{Binding StartNecroBotCommand}" />
+                    <Button Content="{x:Static properties:Resources.MainWindow_Kill_All_NecroBot}" Command="{Binding KillNecroBotCommand}" Margin="2,1,0,1" />
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Window>
