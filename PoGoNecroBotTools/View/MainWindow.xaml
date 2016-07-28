@@ -52,6 +52,7 @@
             <StackPanel DockPanel.Dock="Left" HorizontalAlignment="Right" Orientation="Vertical" Margin="10,5">
                 <TextBlock HorizontalAlignment="Right" Text="{x:Static properties:Resources.MainWindow_NecroBot_Commands}" FontWeight="Bold" />
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Content="{x:Static properties:Resources.MainWindow_Change_NecroBot_Directory}" Command="{Binding ChangeDefaultDirectoryCommand}" />
                     <Button Content="{x:Static properties:Resources.MainWindow_Start_All_NecroBot}" Command="{Binding StartNecroBotCommand}" />
                     <Button Content="{x:Static properties:Resources.MainWindow_Kill_All_NecroBot}" Command="{Binding KillNecroBotCommand}" Margin="2,1,0,1" />
                 </StackPanel>

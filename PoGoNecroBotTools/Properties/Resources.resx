@@ -165,4 +165,7 @@
   <data name="MainWindow_Kill_All_NecroBot" xml:space="preserve">
     <value>Kill All</value>
   </data>
+  <data name="MainWindow_Change_NecroBot_Directory" xml:space="preserve">
+    <value>Change NecroBot Directory</value>
+  </data>
 </root>

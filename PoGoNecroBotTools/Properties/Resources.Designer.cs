@@ -97,6 +97,15 @@ namespace PoGoNecroBotTools.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Change NecroBot Directory.
+        /// </summary>
+        public static string MainWindow_Change_NecroBot_Directory {
+            get {
+                return ResourceManager.GetString("MainWindow_Change_NecroBot_Directory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Default.
         /// </summary>
         public static string MainWindow_Default {

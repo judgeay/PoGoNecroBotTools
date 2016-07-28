@@ -27,7 +27,7 @@ namespace PoGoNecroBotTools.View
         private void OnContentRendered(object sender, EventArgs eventArgs)
         {
             var viewModel = DataContext as MainWindowViewModel;
-            viewModel?.OnViewLoaded();
+            viewModel?.OnContentRendered();
         }
 
         #endregion
