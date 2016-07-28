@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoGoNecroBotTools", "PoGoNecroBotTools\PoGoNecroBotTools.csproj", "{F35A4707-CF17-46C7-8180-6EB3520BD5CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F35A4707-CF17-46C7-8180-6EB3520BD5CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35A4707-CF17-46C7-8180-6EB3520BD5CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35A4707-CF17-46C7-8180-6EB3520BD5CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35A4707-CF17-46C7-8180-6EB3520BD5CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

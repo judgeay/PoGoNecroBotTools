@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PoGoNecroBotTools.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DefaultDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="NecroBotExeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PoGo.NecroBot.CLI.exe</Value>
+    </Setting>
+    <Setting Name="NecroBotConfigDirectoryName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">config</Value>
+    </Setting>
+    <Setting Name="NecroBotConfigFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">config.json</Value>
+    </Setting>
+    <Setting Name="DefaultLatitudeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultLatitude</Value>
+    </Setting>
+    <Setting Name="DefaultLongitudeName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DefaultLongitude</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
