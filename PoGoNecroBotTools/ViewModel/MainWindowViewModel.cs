@@ -170,9 +170,7 @@ namespace PoGoNecroBotTools.ViewModel
 
             _necroBotProcesses.Clear();
 
-            ChangeDefaultDirectoryCommand.RaiseCanExecuteChanged();
-            KillNecroBotCommand.RaiseCanExecuteChanged();
-            StartNecroBotCommand.RaiseCanExecuteChanged();
+            RaiseCommandsCanExecuteChanged();
         }
 
         private bool KillNecroBotCanAction()
@@ -281,16 +279,20 @@ namespace PoGoNecroBotTools.ViewModel
 
                     Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        ChangeDefaultDirectoryCommand.RaiseCanExecuteChanged();
-                        KillNecroBotCommand.RaiseCanExecuteChanged();
-                        StartNecroBotCommand.RaiseCanExecuteChanged();
+                        RaiseCommandsCanExecuteChanged();
                     }));
                 });
                 
                 _necroBotProcesses.Add(processStart);
             }
 
+            RaiseCommandsCanExecuteChanged();
+        }
+
+        private void RaiseCommandsCanExecuteChanged()
+        {
             ChangeDefaultDirectoryCommand.RaiseCanExecuteChanged();
+            UpdateNecroBotCommand.RaiseCanExecuteChanged();
             KillNecroBotCommand.RaiseCanExecuteChanged();
             StartNecroBotCommand.RaiseCanExecuteChanged();
         }
