@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 using PoGoNecroBotTools.ViewModel;
 
 namespace PoGoNecroBotTools.View

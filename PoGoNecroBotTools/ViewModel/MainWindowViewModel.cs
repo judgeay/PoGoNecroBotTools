@@ -15,6 +15,7 @@ using PoGoNecroBotTools.Model;
 using PoGoNecroBotTools.Properties;
 using Application = System.Windows.Application;
 using MessageBox = System.Windows.MessageBox;
+using OpenFileDialog = Microsoft.Win32.OpenFileDialog;
 
 namespace PoGoNecroBotTools.ViewModel
 {
@@ -204,6 +205,14 @@ namespace PoGoNecroBotTools.ViewModel
             StartNecroBotCommand.RaiseCanExecuteChanged();
         }
 
+        private void RaiseCommandsCanExecuteChanged()
+        {
+            ChangeDefaultDirectoryCommand.RaiseCanExecuteChanged();
+            UpdateNecroBotCommand.RaiseCanExecuteChanged();
+            KillNecroBotCommand.RaiseCanExecuteChanged();
+            StartNecroBotCommand.RaiseCanExecuteChanged();
+        }
+
         private void RemoveLocationAction()
         {
             if (SelectedLocation != null) _locations.Remove(SelectedLocation);
@@ -255,7 +264,8 @@ namespace PoGoNecroBotTools.ViewModel
 
             foreach (var necroBotDirectory in necroBotDirectories)
             {
-                var configDir = necroBotDirectory.EnumerateDirectories().FirstOrDefault(x => string.Equals(x.Name, Settings.Default.NecroBotConfigDirectoryName, StringComparison.CurrentCultureIgnoreCase));
+                var configDir =
+                    necroBotDirectory.EnumerateDirectories().FirstOrDefault(x => string.Equals(x.Name, Settings.Default.NecroBotConfigDirectoryName, StringComparison.CurrentCultureIgnoreCase));
                 var configFileInfo = configDir?.EnumerateFiles().FirstOrDefault(x => x.Name == Settings.Default.NecroBotConfigFileName);
                 if (configFileInfo != null)
                 {
@@ -277,24 +287,13 @@ namespace PoGoNecroBotTools.ViewModel
 
                     _necroBotProcesses.Remove(processStart);
 
-                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                    {
-                        RaiseCommandsCanExecuteChanged();
-                    }));
+                    Application.Current.Dispatcher.BeginInvoke(new Action(RaiseCommandsCanExecuteChanged));
                 });
-                
+
                 _necroBotProcesses.Add(processStart);
             }
 
             RaiseCommandsCanExecuteChanged();
-        }
-
-        private void RaiseCommandsCanExecuteChanged()
-        {
-            ChangeDefaultDirectoryCommand.RaiseCanExecuteChanged();
-            UpdateNecroBotCommand.RaiseCanExecuteChanged();
-            KillNecroBotCommand.RaiseCanExecuteChanged();
-            StartNecroBotCommand.RaiseCanExecuteChanged();
         }
 
         private bool StartNecroBotCanAction()
@@ -304,7 +303,7 @@ namespace PoGoNecroBotTools.ViewModel
 
         private void UpdateNecroBotAction()
         {
-            var dlg = new Microsoft.Win32.OpenFileDialog { InitialDirectory = _dirInfo.FullName, Filter = Settings.Default.NecroBotReleaseFileExtension, Multiselect = false};
+            var dlg = new OpenFileDialog { InitialDirectory = _dirInfo.FullName, Filter = Settings.Default.NecroBotReleaseFileExtension, Multiselect = false };
             var result = dlg.ShowDialog();
 
             if (result != true || !File.Exists(dlg.FileName)) return;
@@ -315,7 +314,7 @@ namespace PoGoNecroBotTools.ViewModel
 
             var releaseZip = ZipFile.OpenRead(releaseFileInfo.FullName);
             if (releaseZip.Entries.Count == 0) return;
-            
+
             var updateDirectoryInfo = new DirectoryInfo(Path.Combine(_dirInfo.FullName, "Update"));
             if (updateDirectoryInfo.Exists) updateDirectoryInfo.Delete(true);
             updateDirectoryInfo.Create();
@@ -328,7 +327,7 @@ namespace PoGoNecroBotTools.ViewModel
             }
 
             #endregion Extracting Zip file
-            
+
             var necroBotDirectories = _dirInfo.EnumerateDirectories().Where(x => x.EnumerateFiles().Any(y => y.Name == Settings.Default.NecroBotExeName)).ToArray();
             if (necroBotDirectories.Length == 0)
             {
@@ -340,7 +339,8 @@ namespace PoGoNecroBotTools.ViewModel
 
             foreach (var necroBotDirectory in necroBotDirectories)
             {
-                var configDir = necroBotDirectory.EnumerateDirectories().FirstOrDefault(x => string.Equals(x.Name, Settings.Default.NecroBotConfigDirectoryName, StringComparison.CurrentCultureIgnoreCase));
+                var configDir =
+                    necroBotDirectory.EnumerateDirectories().FirstOrDefault(x => string.Equals(x.Name, Settings.Default.NecroBotConfigDirectoryName, StringComparison.CurrentCultureIgnoreCase));
                 var logsDir = necroBotDirectory.EnumerateDirectories().FirstOrDefault(x => string.Equals(x.Name, Settings.Default.NecroBotLogsDirectoryName, StringComparison.CurrentCultureIgnoreCase));
 
                 if (configDir != null) // Saving auth.json and config.json

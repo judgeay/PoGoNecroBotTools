@@ -26,7 +26,7 @@ namespace PoGoNecroBotTools.View
             if (keyEventArgs.Key != Key.Enter) return;
 
             var viewModel = DataContext as AddLocationDialogViewModel;
-            if (viewModel?.OkCommand.CanExecute(null) == true) viewModel?.OkCommand.Execute(null);
+            if (viewModel?.OkCommand.CanExecute(null) == true) viewModel.OkCommand.Execute(null);
         }
 
         #endregion

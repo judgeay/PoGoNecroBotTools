@@ -2,7 +2,8 @@ using System.Windows;
 
 namespace PoGoNecroBotTools.ViewModel
 {
-    public abstract class DialogViewModelBase<T> where T : Window, new()
+    public abstract class DialogViewModelBase<T>
+        where T : Window, new()
     {
         #region Constructors
 

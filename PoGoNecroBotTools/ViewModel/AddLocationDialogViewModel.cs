@@ -1,6 +1,6 @@
 using System.Globalization;
 using GalaSoft.MvvmLight.Command;
-using AddLocationDialog = PoGoNecroBotTools.View.AddLocationDialog;
+using PoGoNecroBotTools.View;
 
 namespace PoGoNecroBotTools.ViewModel
 {
@@ -17,15 +17,6 @@ namespace PoGoNecroBotTools.ViewModel
         #endregion
 
         #region Constructors
-
-        public AddLocationDialogViewModel()
-        {
-#if DEBUG
-            LocationTitle = "Parc de la Villette - Théâtre Paris-Villette";
-            LocationLatitude = "48,889739";
-            LocationLongitude = "2,390819";
-#endif
-        }
 
         #endregion
 
