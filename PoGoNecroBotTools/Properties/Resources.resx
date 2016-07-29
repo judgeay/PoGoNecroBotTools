@@ -168,4 +168,13 @@
   <data name="MainWindow_Change_NecroBot_Directory" xml:space="preserve">
     <value>Change NecroBot Directory</value>
   </data>
+  <data name="MainWindow_Update_NecroBot" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="MainWindowViewModel_Any NecroBot directory was detected" xml:space="preserve">
+    <value>Any NecroBot directory was detected</value>
+  </data>
+  <data name="MainWindowViewModel_UpdateNecroBotAction_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
 </root>

@@ -47,7 +47,7 @@ namespace PoGoNecroBotTools.Model
 
         private static Dictionary<string, string> ParseJsonFile(string path)
         {
-            var config = File.ReadAllText(path).Split(new[] { '{', '}', ',' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).Where(x => !string.IsNullOrWhiteSpace(x)).ToList();
+            var config = File.ReadAllLines(path).Select(line => line.Trim().Trim(',')).Where(x => x.Length > 1).ToList();
 
             var removeMode = false;
             foreach (var line in config.ToArray())
@@ -69,8 +69,8 @@ namespace PoGoNecroBotTools.Model
 
             foreach (var line in config)
             {
-                var splittedLine = line.Split(new[] { '\"', ':' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
-                configDictionary.Add(splittedLine[0], splittedLine[1]);
+                var splittedLine = line.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries).Select(x => x.Trim()).ToArray();
+                configDictionary.Add(splittedLine[0].Trim('\"'), splittedLine[1]);
             }
 
             return configDictionary;

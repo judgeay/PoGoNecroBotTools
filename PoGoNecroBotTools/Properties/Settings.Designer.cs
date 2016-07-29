@@ -37,25 +37,13 @@ namespace PoGoNecroBotTools.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("PoGo.NecroBot.CLI.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("NecroBot.exe")]
         public string NecroBotExeName {
             get {
                 return ((string)(this["NecroBotExeName"]));
             }
             set {
                 this["NecroBotExeName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("config")]
-        public string NecroBotConfigDirectoryName {
-            get {
-                return ((string)(this["NecroBotConfigDirectoryName"]));
-            }
-            set {
-                this["NecroBotConfigDirectoryName"] = value;
             }
         }
         
@@ -92,6 +80,54 @@ namespace PoGoNecroBotTools.Properties {
             }
             set {
                 this["DefaultLongitudeName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Config")]
+        public string NecroBotConfigDirectoryName {
+            get {
+                return ((string)(this["NecroBotConfigDirectoryName"]));
+            }
+            set {
+                this["NecroBotConfigDirectoryName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("auth.json")]
+        public string NecroBotAuthFileName {
+            get {
+                return ((string)(this["NecroBotAuthFileName"]));
+            }
+            set {
+                this["NecroBotAuthFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Logs")]
+        public string NecroBotLogsDirectoryName {
+            get {
+                return ((string)(this["NecroBotLogsDirectoryName"]));
+            }
+            set {
+                this["NecroBotLogsDirectoryName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NecroBot Release file (*.zip)|*.zip")]
+        public string NecroBotReleaseFileExtension {
+            get {
+                return ((string)(this["NecroBotReleaseFileExtension"]));
+            }
+            set {
+                this["NecroBotReleaseFileExtension"] = value;
             }
         }
     }

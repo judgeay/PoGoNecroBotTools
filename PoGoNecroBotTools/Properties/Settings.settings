@@ -6,10 +6,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="NecroBotExeName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">PoGo.NecroBot.CLI.exe</Value>
-    </Setting>
-    <Setting Name="NecroBotConfigDirectoryName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">config</Value>
+      <Value Profile="(Default)">NecroBot.exe</Value>
     </Setting>
     <Setting Name="NecroBotConfigFileName" Type="System.String" Scope="User">
       <Value Profile="(Default)">config.json</Value>
@@ -19,6 +16,18 @@
     </Setting>
     <Setting Name="DefaultLongitudeName" Type="System.String" Scope="User">
       <Value Profile="(Default)">DefaultLongitude</Value>
+    </Setting>
+    <Setting Name="NecroBotConfigDirectoryName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Config</Value>
+    </Setting>
+    <Setting Name="NecroBotAuthFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">auth.json</Value>
+    </Setting>
+    <Setting Name="NecroBotLogsDirectoryName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Logs</Value>
+    </Setting>
+    <Setting Name="NecroBotReleaseFileExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NecroBot Release file (*.zip)|*.zip</Value>
     </Setting>
   </Settings>
 </SettingsFile>

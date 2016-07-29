@@ -212,5 +212,32 @@ namespace PoGoNecroBotTools.Properties {
                 return ResourceManager.GetString("MainWindow_Title_", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Update.
+        /// </summary>
+        public static string MainWindow_Update_NecroBot {
+            get {
+                return ResourceManager.GetString("MainWindow_Update_NecroBot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Any NecroBot directory was detected.
+        /// </summary>
+        public static string MainWindowViewModel_Any_NecroBot_directory_was_detected {
+            get {
+                return ResourceManager.GetString("MainWindowViewModel_Any NecroBot directory was detected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Error.
+        /// </summary>
+        public static string MainWindowViewModel_UpdateNecroBotAction_Error {
+            get {
+                return ResourceManager.GetString("MainWindowViewModel_UpdateNecroBotAction_Error", resourceCulture);
+            }
+        }
     }
 }
