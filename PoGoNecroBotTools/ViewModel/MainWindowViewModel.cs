@@ -33,6 +33,7 @@ namespace PoGoNecroBotTools.ViewModel
 
         private RelayCommand _changeDefaultDirectoryCommand;
         private DirectoryInfo _dirInfo;
+        private DumpFileParser _dumpFileParser;
         private RelayCommand _killNecroBotCommand;
         private ObservableCollection<Location> _locations = new ObservableCollection<Location>();
         private ReadOnlyObservableCollection<Location> _readOnlyLocations;
@@ -78,6 +79,8 @@ namespace PoGoNecroBotTools.ViewModel
                 RaisePropertyChanged(() => Locations);
             }
         }
+
+        public ReadOnlyObservableCollection<PokemonGoAccount> PokemonGoAccounts => _dumpFileParser?.PokemonGoAccounts;
 
         public RelayCommand RemoveLocationCommand
         {
@@ -203,6 +206,11 @@ namespace PoGoNecroBotTools.ViewModel
             Locations = new ReadOnlyObservableCollection<Location>(_locations);
 
             StartNecroBotCommand.RaiseCanExecuteChanged();
+
+            _dumpFileParser?.Dispose();
+            _dumpFileParser = new DumpFileParser(_dirInfo);
+
+            RaisePropertyChanged(() => PokemonGoAccounts);
         }
 
         private void RaiseCommandsCanExecuteChanged()

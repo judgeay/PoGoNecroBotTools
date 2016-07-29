@@ -93,8 +93,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="DumpFileParser.cs" />
     <Compile Include="FileUtils.cs" />
     <Compile Include="Model\ConfigFile.cs" />
+    <Compile Include="Model\Pokemon.cs" />
+    <Compile Include="Model\PokemonGoAccount.cs" />
     <Compile Include="View\AddLocationDialog.xaml.cs">
       <DependentUpon>AddLocationDialog.xaml</DependentUpon>
     </Compile>

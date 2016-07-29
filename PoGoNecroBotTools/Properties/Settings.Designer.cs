@@ -130,5 +130,125 @@ namespace PoGoNecroBotTools.Properties {
                 this["NecroBotReleaseFileExtension"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dumps")]
+        public string NecroBotDumpsDirectoryName {
+            get {
+                return ((string)(this["NecroBotDumpsDirectoryName"]));
+            }
+            set {
+                this["NecroBotDumpsDirectoryName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NecroBot-PokeBagStats")]
+        public string NecroBotPokeBagStatsFileName {
+            get {
+                return ((string)(this["NecroBotPokeBagStatsFileName"]));
+            }
+            set {
+                this["NecroBotPokeBagStatsFileName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NAME:")]
+        public string DumpName {
+            get {
+                return ((string)(this["DumpName"]));
+            }
+            set {
+                this["DumpName"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Lvl:")]
+        public string DumpLevel {
+            get {
+                return ((string)(this["DumpLevel"]));
+            }
+            set {
+                this["DumpLevel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("CP:")]
+        public string DumpCp {
+            get {
+                return ((string)(this["DumpCp"]));
+            }
+            set {
+                this["DumpCp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("IV:")]
+        public string DumpIv {
+            get {
+                return ((string)(this["DumpIv"]));
+            }
+            set {
+                this["DumpIv"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public byte DumpNameOrder {
+            get {
+                return ((byte)(this["DumpNameOrder"]));
+            }
+            set {
+                this["DumpNameOrder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public byte DumpLevelOrder {
+            get {
+                return ((byte)(this["DumpLevelOrder"]));
+            }
+            set {
+                this["DumpLevelOrder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        public byte DumpCpOrder {
+            get {
+                return ((byte)(this["DumpCpOrder"]));
+            }
+            set {
+                this["DumpCpOrder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        public byte DumpIvOrder {
+            get {
+                return ((byte)(this["DumpIvOrder"]));
+            }
+            set {
+                this["DumpIvOrder"] = value;
+            }
+        }
     }
 }

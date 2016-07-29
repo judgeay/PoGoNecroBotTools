@@ -29,5 +29,35 @@
     <Setting Name="NecroBotReleaseFileExtension" Type="System.String" Scope="User">
       <Value Profile="(Default)">NecroBot Release file (*.zip)|*.zip</Value>
     </Setting>
+    <Setting Name="NecroBotDumpsDirectoryName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dumps</Value>
+    </Setting>
+    <Setting Name="NecroBotPokeBagStatsFileName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NecroBot-PokeBagStats</Value>
+    </Setting>
+    <Setting Name="DumpName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NAME:</Value>
+    </Setting>
+    <Setting Name="DumpLevel" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Lvl:</Value>
+    </Setting>
+    <Setting Name="DumpCp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">CP:</Value>
+    </Setting>
+    <Setting Name="DumpIv" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IV:</Value>
+    </Setting>
+    <Setting Name="DumpNameOrder" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DumpLevelOrder" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DumpCpOrder" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="DumpIvOrder" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

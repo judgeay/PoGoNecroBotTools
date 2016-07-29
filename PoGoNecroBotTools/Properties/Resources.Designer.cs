@@ -133,6 +133,15 @@ namespace PoGoNecroBotTools.Properties {
         }
         
         /// <summary>
+        ///   Recherche une chaîne localisée semblable à Locations.
+        /// </summary>
+        public static string MainWindow_Locations {
+            get {
+                return ResourceManager.GetString("MainWindow_Locations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Recherche une chaîne localisée semblable à Locations Commands.
         /// </summary>
         public static string MainWindow_Locations_Commands {
@@ -156,6 +165,15 @@ namespace PoGoNecroBotTools.Properties {
         public static string MainWindow_NecroBot_Commands {
             get {
                 return ResourceManager.GetString("MainWindow_NecroBot_Commands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à Pokemons.
+        /// </summary>
+        public static string MainWindow_Pokemons {
+            get {
+                return ResourceManager.GetString("MainWindow_Pokemons", resourceCulture);
             }
         }
         
